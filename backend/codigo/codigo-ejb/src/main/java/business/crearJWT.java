@@ -11,6 +11,7 @@ import util.constantes;
 @Stateless
 public class crearJWT implements IcrearJWT{
 	
+	@Override
 	public String crearJsonWebToken() {
 		Date ahora = new Date();
 		/* 1 horas de validez */
