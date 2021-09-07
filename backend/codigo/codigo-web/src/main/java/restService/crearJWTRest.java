@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import business.IcrearJWT;
+import dto.LoginExitosoDTO;
 import dto.loginDTO;
 
 
@@ -23,10 +24,15 @@ public class crearJWTRest {
 	
 	@GET
 	public Response crearJWT(loginDTO loginDTO) {
-		RespuestaREST<String> respuesta = null;
-		String jwt = crearJWT.crearJsonWebToken();
-		respuesta = new RespuestaREST<String>(true, "JWT creado con éxito.", jwt);
-		return Response.ok(respuesta).build();
-	}
+		RespuestaREST<LoginExitosoDTO> respuesta = null;
+		if (crearJWT.loginExitoso(loginDTO)) {
+			LoginExitosoDTO login = crearJWT.crearJsonWebToken(loginDTO);
+			respuesta = new RespuestaREST<LoginExitosoDTO>(true, "JWT creado con éxito.", login);
+			return Response.ok(respuesta).build();
+		}else {
+			respuesta = new RespuestaREST<>(false, "El usuario no está registrado en el sistema");
+			return Response.ok(respuesta).build();
+		}
 	
 }
+}	

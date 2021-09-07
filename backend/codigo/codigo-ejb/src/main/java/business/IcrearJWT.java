@@ -2,9 +2,13 @@ package business;
 
 import javax.ejb.Local;
 
+import dto.LoginExitosoDTO;
+import dto.loginDTO;
+
 @Local
 public interface IcrearJWT {
 
-	public String crearJsonWebToken();
+	public LoginExitosoDTO crearJsonWebToken(loginDTO loginDTO);
+	public boolean loginExitoso(loginDTO loginDTO);
 	
 }
