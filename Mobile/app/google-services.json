@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "375016221599",
+    "project_id": "proyecto2021g3utufing",
+    "storage_bucket": "proyecto2021g3utufing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375016221599:android:5971863aa13bc2fc9e6baa",
+        "android_client_info": {
+          "package_name": "uy.edu.fing.proyecto.pcappettit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375016221599-dvct6l5h47ouir51ljgq289ub05krikk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXxvJgYtRAjpNlDg8tfH6VJgH6xGGIbRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375016221599-dvct6l5h47ouir51ljgq289ub05krikk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
