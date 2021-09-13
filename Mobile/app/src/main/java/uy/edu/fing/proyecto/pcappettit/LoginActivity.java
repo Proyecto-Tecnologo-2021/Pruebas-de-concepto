@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.Response;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -100,9 +102,18 @@ public class LoginActivity extends AppCompatActivity {
 
             if (result instanceof DtLogin) {
                 DtLogin login = (DtLogin) result;
-                //addPlanes(planes);
-                Toast.makeText(LoginActivity.this, login.getMensaje(), Toast.LENGTH_LONG).show();
-
+                //Toast.makeText(LoginActivity.this, login.getMensaje(), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "ServerJWT:" + dtUsuario.getToken());
+                AlertDialog dialog = new AlertDialog.Builder(LoginActivity.this).create();
+                dialog.setTitle(R.string.info_title);
+                dialog.setMessage(login.getMensaje()+": "+ dtUsuario.getTelefono());
+                dialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.alert_btn_neutral), new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int which) {
+                        onBackPressed();
+                    }
+                });
+                dialog.show();
 
             }else{
                 AlertDialog dialog = new AlertDialog.Builder(LoginActivity.this).create();
@@ -117,8 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                 dialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.alert_btn_neutral), new DialogInterface.OnClickListener()
                 {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent iMainActivity = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(iMainActivity);
+                        onBackPressed();
                     }
                 });
                 dialog.show();
@@ -150,10 +160,9 @@ public class LoginActivity extends AppCompatActivity {
             // Starts the query
             conn.connect();
             int response = conn.getResponseCode();
-            Log.i(TAG, String.valueOf(response));
+            Log.i(TAG, "ResponseCode:" + String.valueOf(response));
             is = conn.getInputStream();
 
-            Log.i(TAG, is.toString());
             return readInfoGralJsonStream(is);
 
             // Makes sure that the InputStream is closed after the app is
@@ -188,8 +197,6 @@ public class LoginActivity extends AppCompatActivity {
         Boolean ok = false;
         String mensaje = null;
         DtLogin res = null;
-        Log.i(TAG, reader.toString());
-
 
         reader.beginObject();
         while (reader.hasNext()) {

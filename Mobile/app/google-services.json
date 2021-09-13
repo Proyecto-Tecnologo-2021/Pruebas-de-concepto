@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:375016221599:android:5971863aa13bc2fc9e6baa",
+        "mobilesdk_app_id": "1:375016221599:android:54a3be8429478c6f9e6baa",
         "android_client_info": {
           "package_name": "uy.edu.fing.proyecto.pcappettit"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "375016221599-ol7hv88fto40321s41b3i4a243sp52q0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uy.edu.fing.proyecto.pcappettit",
+            "certificate_hash": "e574e7afe5577bd7fff92e707fce2d34a4aefc71"
+          }
+        },
         {
           "client_id": "375016221599-dvct6l5h47ouir51ljgq289ub05krikk.apps.googleusercontent.com",
           "client_type": 3
